@@ -26,6 +26,8 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "no-unused-expressions": "off",
+    "@typescript-eslint/ban-types": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
