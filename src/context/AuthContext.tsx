@@ -1,4 +1,6 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, {
+  createContext, useCallback, useContext, useState,
+} from 'react';
 import api from '../services/api';
 
 interface AuthState {
@@ -16,11 +18,11 @@ interface AuthContexData {
   signIn(credentials: SingInCredentials): Promise<void>;
 }
 
-export const AuthContext = createContext<AuthContexData>(
+const AuthContext = createContext<AuthContexData>(
   {} as AuthContexData,
 );
 
-export const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   // preenche os valores de data de acordo com o que esta no localstorage
   // pois se ja tiver os dados podemos já preencher os dados Data
 
@@ -54,3 +56,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+function useAuth(): AuthContexData {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+}
+
+export { AuthProvider, useAuth };
