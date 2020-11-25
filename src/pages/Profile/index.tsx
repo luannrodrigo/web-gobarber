@@ -1,5 +1,5 @@
 import React, {
-  ChangeEvent, FormEvent, useCallback, useRef,
+  ChangeEvent, useCallback, useRef,
 } from 'react';
 import {
   FiMail, FiLock, FiUser, FiCamera, FiArrowLeft,
@@ -114,7 +114,7 @@ const Profile: React.FC = () => {
         description: 'Ocorreu um erro ao fazer a atualização do perfil, tente novamente',
       });
     }
-  }, [addToast, history]);
+  }, [addToast, history, updateUser]);
 
   const handleAvatarChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {

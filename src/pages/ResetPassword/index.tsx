@@ -28,8 +28,6 @@ const SignIn: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
 
-  console.log(location.search);
-
   const handleSubmit = useCallback(
     async (data: ResetPasswordFormData) => {
       try {
