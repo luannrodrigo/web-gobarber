@@ -46,13 +46,13 @@ const SignIn: React.FC = () => {
         password: data.password,
       });
 
-      history.push('/dashboard');
-
       addToast({
         type: 'success',
         title: 'Autenticado com sucesso',
         description: 'Autenticado com sucesso, redirecionando',
       });
+
+      history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
